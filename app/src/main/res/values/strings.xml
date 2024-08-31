@@ -13,4 +13,8 @@
     <string name="medium">Medium</string>
     <string name="big">Big</string>
     <string name="add_city_info">Add city info</string>
+    <string name="select_temperature_system_label">Select temperature system:</string>
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="kelvin">Kelvin</string>
 </resources>

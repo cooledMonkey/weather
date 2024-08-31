@@ -2,7 +2,11 @@ package com.example.android.weather.info
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.android.weather.CelsiusSystem
+import com.example.android.weather.FahrenheitSystem
+import com.example.android.weather.KelvinSystem
 import com.example.android.weather.Seasons
+import com.example.android.weather.TemperatureCalc
 import com.example.android.weather.database.CityInfoDao
 import com.example.android.weather.database.CityInfoEntity
 import kotlinx.coroutines.CoroutineScope
@@ -21,6 +25,8 @@ class InfoViewModel(val database: CityInfoDao): ViewModel() {
 
     var cityList = database.getAllCities()
     var seasonTemperature = MutableLiveData(0.0)
+
+    val temperatureCalc: TemperatureCalc = TemperatureCalc()
 
     fun getSelectedItem(city: CityInfoEntity){
             currentCity = city
@@ -47,6 +53,18 @@ class InfoViewModel(val database: CityInfoDao): ViewModel() {
         searchSeason()
     }
 
+    fun radioButtonCelsius(){
+        temperatureCalc.changeSystem(CelsiusSystem())
+    }
+
+    fun radioButtonFahrenheit(){
+        temperatureCalc.changeSystem(FahrenheitSystem())
+    }
+
+    fun radioButtonKelvin(){
+        temperatureCalc.changeSystem(KelvinSystem())
+    }
+
     private fun roundToDouble(number: Double): Double{
         return (number*100).roundToInt()/100.0
     }
@@ -57,22 +75,22 @@ class InfoViewModel(val database: CityInfoDao): ViewModel() {
                 Seasons.Months.WINTER -> {
                     val item = database.findWinterInfo(currentCity.id)
                     seasonTemperature.postValue(
-                        roundToDouble((item.december + item.february + item.january) / 3))
+                        temperatureCalc.getTemperature(roundToDouble((item.december + item.february + item.january) / 3)))
                 }
                 Seasons.Months.SPRING -> {
                     val item = database.findSpringInfo(currentCity.id)
                     seasonTemperature.postValue(
-                        roundToDouble((item.april + item.march + item.may) / 3))
+                        temperatureCalc.getTemperature(roundToDouble((item.april + item.march + item.may) / 3)))
                 }
                 Seasons.Months.SUMMER -> {
                     val item = database.findSummerInfo(currentCity.id)
                     seasonTemperature.postValue(
-                        roundToDouble((item.june + item.july + item.august) / 3))
+                        temperatureCalc.getTemperature(roundToDouble((item.june + item.july + item.august) / 3)))
                 }
                 Seasons.Months.AUTUMN -> {
                     val item = database.findAutumnInfo(currentCity.id)
                     seasonTemperature.postValue(
-                        roundToDouble((item.september + item.october + item.november) / 3))
+                        temperatureCalc.getTemperature(roundToDouble((item.september + item.october + item.november) / 3)))
                 }
 
                 else -> {
