@@ -34,6 +34,7 @@ class SettingsFragment : Fragment() {
 
             override fun changeCity(id: Long) {
                 viewModel.changeCity(id)
+                binding.radioButton.isChecked = true
             }
         })
         binding.allCitiesRecyclerview.layoutManager = LinearLayoutManager(requireContext())

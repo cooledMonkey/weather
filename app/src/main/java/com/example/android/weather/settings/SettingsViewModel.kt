@@ -110,9 +110,9 @@ class SettingsViewModel(val database: CityInfoDao) : ViewModel() {
     }
 
     private fun setNewTemperature(monthTemp: Array<Double>) {
-        temp1String.value = monthTemp[0].toString()
-        temp2String.value = monthTemp[1].toString()
-        temp3String.value = monthTemp[2].toString()
+        temp1String.postValue(monthTemp[0].toString())
+        temp2String.postValue(monthTemp[1].toString())
+        temp3String.postValue(monthTemp[2].toString())
     }
 
     fun addInfoButton() {
@@ -149,6 +149,13 @@ class SettingsViewModel(val database: CityInfoDao) : ViewModel() {
                         database.insertAllSeasons(summerItem, autumnItem, winterItem, springItem)
                     }
                 }
+                cityName.postValue("")
+                cityItemId.postValue(null)
+                seasonsClass.setTemperaturesInArray(summerTemperature.value!!, 0.0, 0.0, 0.0)
+                seasonsClass.setTemperaturesInArray(autumnTemperature.value!!, 0.0, 0.0, 0.0)
+                seasonsClass.setTemperaturesInArray(winterTemperature.value!!, 0.0, 0.0, 0.0)
+                seasonsClass.setTemperaturesInArray(springTemperature.value!!, 0.0, 0.0, 0.0)
+                setNewTemperature(winterTemperature.value!!)
             }
         }
     }
@@ -199,6 +206,17 @@ class SettingsViewModel(val database: CityInfoDao) : ViewModel() {
                     autumnItem.november
                 )
             )
+
+//            season.getValue()
+//
+//            when(season.getValue()){
+//                Seasons.Months.WINTER -> setNewTemperature(winterTemperature.value!!)
+//                Seasons.Months.SPRING -> setNewTemperature(springTemperature.value!!)
+//                Seasons.Months.SUMMER -> setNewTemperature(summerTemperature.value!!)
+//                Seasons.Months.AUTUMN -> setNewTemperature(autumnTemperature.value!!)
+//                null -> setNewTemperature(winterTemperature.value!!)
+//            }
+
 
             temp1String.postValue(winterItem.december.toString())
             temp2String.postValue(winterItem.january.toString())

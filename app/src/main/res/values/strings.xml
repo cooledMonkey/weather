@@ -19,4 +19,9 @@
     <string name="kelvin">Kelvin</string>
     <string name="temperature_is">Temperature is:</string>
     <string name="search">Search</string>
+    <string name="all_cities_label">All cities:</string>
+    <string name="name_hint">Name</string>
+    <string name="enter_the_name_of_the_city_label">Enter the name of the city</string>
+    <string name="temperature_by_month_label">Temperature by month</string>
+    <string name="select_the_type_of_city_label">Select the type of city</string>
 </resources>
