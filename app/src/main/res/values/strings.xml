@@ -17,4 +17,6 @@
     <string name="celsius">Celsius</string>
     <string name="fahrenheit">Fahrenheit</string>
     <string name="kelvin">Kelvin</string>
+    <string name="temperature_is">Temperature is:</string>
+    <string name="search">Search</string>
 </resources>

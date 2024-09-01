@@ -18,6 +18,7 @@ import com.example.android.weather.R
 import com.example.android.weather.database.CityDatabase
 import com.example.android.weather.database.CityInfoEntity
 import com.example.android.weather.databinding.FragmentInfoBinding
+import com.google.android.material.snackbar.Snackbar
 
 class InfoFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var viewModel: InfoViewModel
@@ -49,8 +50,18 @@ class InfoFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 binding.spinner.onItemSelectedListener = this
             }
         })
-        val item: CityInfoEntity? = binding.spinner.selectedItem as CityInfoEntity?
-        item?.id
+
+        binding.searchButton.setOnClickListener {
+            viewModel.searchButton()
+        }
+
+        viewModel.seasonTemperature.observe(viewLifecycleOwner, Observer {
+            Snackbar.make(
+                binding.root, resources.getString(R.string.temperature_is)
+                        + " " + viewModel.seasonTemperature.value.toString()
+                        + viewModel.temperatureCalc.getMeasurementUnits(), Snackbar.LENGTH_LONG
+            ).show()
+        })
 
         return binding.root
     }

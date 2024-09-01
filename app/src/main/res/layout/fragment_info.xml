@@ -9,160 +9,165 @@
             type="com.example.android.weather.info.InfoViewModel" />
     </data>
 
-    <LinearLayout
-        android:id="@+id/city_selection"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".info.InfoFragment">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/select_city_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:text="@string/select_city"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/spinner"
+        <LinearLayout
+            android:id="@+id/city_selection"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="12dp"
-            android:checked="true" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".info.InfoFragment">
 
-        <TextView
-            android:id="@+id/select_season_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:text="@string/select_season"
-            android:textSize="20sp" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/winter_radio_button"
+            <TextView
+                android:id="@+id/select_city_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:onClick="@{() -> viewModel.radioButtonWinter()}"
-                android:text="@string/winter" />
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="@string/select_city"
+                android:textSize="20sp" />
 
-            <RadioButton
-                android:id="@+id/spring_radio_button"
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:checked="true" />
+
+            <TextView
+                android:id="@+id/select_season_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="@{() -> viewModel.radioButtonSpring()}"
-                android:text="@string/spring" />
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="@string/select_season"
+                android:textSize="20sp" />
 
-            <RadioButton
-                android:id="@+id/summer_radio_button"
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/winter_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:onClick="@{() -> viewModel.radioButtonWinter()}"
+                    android:text="@string/winter" />
+
+                <RadioButton
+                    android:id="@+id/spring_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.radioButtonSpring()}"
+                    android:text="@string/spring" />
+
+                <RadioButton
+                    android:id="@+id/summer_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.radioButtonSummer()}"
+                    android:text="@string/summer" />
+
+                <RadioButton
+                    android:id="@+id/autumn_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.radioButtonAutumn()}"
+                    android:text="@string/autumn" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/select_temperature_system"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="@{() -> viewModel.radioButtonSummer()}"
-                android:text="@string/summer" />
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="@string/select_temperature_system_label"
+                android:textSize="20sp" />
 
-            <RadioButton
-                android:id="@+id/autumn_radio_button"
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/celsius_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:onClick="@{() -> viewModel.radioButtonCelsius()}"
+                    android:text="@string/celsius" />
+
+                <RadioButton
+                    android:id="@+id/fahrenheit_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.radioButtonFahrenheit()}"
+                    android:text="@string/fahrenheit" />
+
+                <RadioButton
+                    android:id="@+id/kelvin_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.radioButtonKelvin()}"
+                    android:text="@string/kelvin" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/type_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="@{() -> viewModel.radioButtonAutumn()}"
-                android:text="@string/autumn" />
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="@{@string/type(viewModel.cityType)}"
+                android:textSize="20sp" />
 
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/select_temperature_system"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:text="@string/select_temperature_system_label"
-            android:textSize="20sp" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/celsius_radio_button"
+            <TextView
+                android:id="@+id/temperature_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="@{() -> viewModel.radioButtonCelsius()}"
-                android:text="@string/celsius" />
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="@{@string/temperature(viewModel.seasonTemperature.toString())}"
+                android:textSize="20sp" />
 
-            <RadioButton
-                android:id="@+id/fahrenheit_radio_button"
-                android:layout_width="wrap_content"
+            <!--            android:text="@{@string/temperature(viewModel.seasonTemperature)}"-->
+
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="@{() -> viewModel.radioButtonFahrenheit()}"
-                android:text="@string/fahrenheit" />
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/search" />
 
-            <RadioButton
-                android:id="@+id/kelvin_radio_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="@{() -> viewModel.radioButtonKelvin()}"
-                android:text="@string/kelvin" />
-
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/type_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:text="@{@string/type(viewModel.cityType)}"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/temperature_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:text="@{@string/temperature(viewModel.seasonTemperature.toString())}"
-            android:textSize="20sp" />
-
-        <!--            android:text="@{@string/temperature(viewModel.seasonTemperature)}"-->
-
-        <Button
-            android:id="@+id/search_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="16dp"
-            android:onClick="@{() -> viewModel.searchButton()}"
-            android:text="Search" />
-
-    </LinearLayout>
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
